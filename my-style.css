@@ -1,7 +1,20 @@
+
+
+
 /* General Styles */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: Arial, sans-serif;
   
+}
+img{
+    width: 100%;
+    height: 100%;
 }
 /**
  Navigation bar styling
@@ -20,6 +33,7 @@ body {
     width: 100%;
     top: 0;
     position: fixed;
+    z-index: 1;
 
 }
 .nav-logo {
@@ -36,7 +50,7 @@ body {
 }
 .nav-menu {
     display: flex;
-    gap: 1em;
+    gap: 1rem;
     font-size: 18px;
   }
   
@@ -60,11 +74,80 @@ body {
     font-size: 24px;
     user-select: none;
   }
-  
-
-.home-container{
-    padding: 10rem 2rem;
+.home-container p, h1{
+    color:white;
+    opacity: 75%;
 }
+.home{
+    padding: 10rem 2rem;
+    position: relative; /* Set the container to relative position */
+    background-image: url("./images/bckg4.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position-y: center;
+    background-position: center;
+    height: 100vh;
+
+}
+.btn-more{
+    padding: 1rem 2rem;
+    background-color: blue;
+    border-radius: 1.5rem;
+    box-shadow: 1px solid green;
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+}
+.show-more-details-btn{
+    text-decoration: none;
+    font-family:sans-serif;
+    font-weight: 500;
+    color: blue;
+    border: 1px solid blue;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+    
+}
+.show-more-details-btn:hover,:focus{
+    border: 2px solid blue;
+    font-weight: 500;
+    padding: 1rem;
+    border-radius: 1.5rem;
+}
+
+.product-container{
+       padding: 5rem 0rem;
+}
+.shop-container{
+    position: absolute;;
+}
+
+@media (min-width:768px){
+.products-summary,.shop-catergory{
+    display: inline-block; 
+    white-space: nowrap; 
+    animation: slideRight 30s linear 3; 
+  }
+
+  @keyframes slideRight {
+    0% {
+      transform: translateX(0%) 
+    }
+    100% {
+      transform: translateX(100%); 
+    }
+  }
+}
+
+  .products-summary{
+    background-color: antiquewhite;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    opacity: 50%;
+  }
 
 .products-sections, .product-items{
    display: block;
@@ -79,13 +162,7 @@ body {
     margin:0rem 1rem;
     padding: 0rem 1rem;
 }
-h1, h2 {
-    color: #333;
-}
 
-p {
-    color: #666;
-}
 img {
     width: 325px;  /* adjust as needed */
     height: 310px; /* adjust as needed */
@@ -95,9 +172,6 @@ img {
   display: inline-block;
   margin-right: 1px;
 }
-
-
-
 
 
 /* Banner Styles */
@@ -151,14 +225,24 @@ section {
     box-shadow: 0 1px 2px 0 #666;
     padding: 2rem 5rem ;
 }
+.details>p{
+    line-height: 1rem;
+}
 .details>img{
     width: 100%;
+    
 }
 
 .add-cart{
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     background-color: darkgreen;
     border: none;
+    color: white;
+    border-radius: 1.5rem;
+}
+.add-cart:hover,:focus{
+    border-radius: 1.5rem;
+    box-shadow: 1px solid blue;
 }
 .product-description{
   text-transform: none;
@@ -187,8 +271,8 @@ section {
 }
 
 .cart-container{
-   display: block;
-   margin-top: 1rem;
+   position: absolute;
+   padding: 5rem  0rem;
 
 }
 
@@ -245,10 +329,7 @@ section {
     color: #000000;
     background-color: #e7e4e4;
 }
-.about-container p{
-    line-height: 2rem;
-    color: #000000;
-}
+
 .about-title p{
     text-align: center;
 }
@@ -259,10 +340,27 @@ section {
     justify-content: center;
     align-items: center;
 }
+
 .contact-card{
     box-shadow: 0 1px 2px 0 #666;
     padding: 2rem;
 }
+.contact-card>div{
+    padding: 1rem 0rem;
+}
+.contact{
+    display: block;
+
+}
+.contact-sutitle{
+    color: black;
+    font-style: normal;
+    font-size: medium;
+}
+.contanct-content>*{
+    display: inline;
+}
+
 .send-message{
     display: block;
    
@@ -286,6 +384,7 @@ section {
 
   /* APPLYING MEDIA QUERIES */
   @media (max-width: 768px) {
+    
 
     .nav-menu {
        display:none;
@@ -298,13 +397,12 @@ section {
      }
      
    
-     .nav-menu li:hover {
-       display: inline-block;
+     .nav-menu a:hover {
        background-color:#4c9e9e;
        transition: 0.3s ease;
      }
    
-     .nav-menu li + li {
+     .nav-menu a + a {
        margin-top: 12px;
      }
    
@@ -312,19 +410,33 @@ section {
        display: block;
     
      }
+     .nav-menu>a{
+        padding: 0% 50%;
+          
+     }
      .hamburger {
        display: block;
      }
+     .home-container{
+        height: auto;
+     }
+     .items>div{
+        margin:1rem;
+       
+    }
      .contact-container{
         height: 100vh;
         display: flex;
         justify-content: center !important;
-        align-items: center !important;
+        align-items: start !important;
+        padding:  5rem 0rem;
        
     }
     .contact-card{
         box-shadow: none;
+        display: block;
     }
+   
     .about-container{
         height: 100vh;
         display: flex;
@@ -344,6 +456,21 @@ section {
     }
     .nav-logo{
         font-size: 1rem;
-    }
+    } 
+
  
+   }
+   @Media  (max-width:885px){
+    .nav-logo {
+        font-size: 20px;
+    }
+    .nav-menu>a{
+        font-size: 16px;
+    }
+   }
+   @media (max-width:1024px){
+       .contact-container{
+        align-items: start;
+        padding: 5rem;
+       }
    }
